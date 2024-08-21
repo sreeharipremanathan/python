@@ -125,7 +125,7 @@
 # print(rev)
 
 # to print characters of a string
-
+# -------------------------------
 # s=input('enter a word: ')
 # l=len(s)
 # i=0
@@ -133,11 +133,13 @@
 #     print(s[i])
 #     i+=1
 
-str=input('enter a string: ')
-l=len(str)
-rev=""
-i=0
-while i<l:
-    rev=str[i]+rev
-    i+=1
-print(rev)
+# print a string in reverse
+# -------------------------
+# str=input('enter a string: ')
+# l=len(str)
+# rev=""
+# i=0
+# while i<l:
+#     rev=str[i]+rev
+#     i+=1
+# print(rev)
