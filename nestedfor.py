@@ -89,3 +89,40 @@
 #                 print(2-j,end="\t")
 #     print()
 
+
+# for i in range(3):
+#     for j in range(3):
+#         if j==0:
+#             print('A',end="\t")
+#         elif j==1:
+#             print('B',end="\t")
+#         elif j==2:
+#             print('c',end="\t")
+#     print()
+
+# output
+# -------
+# A       B       c
+# A       B       c
+# A       B       c
+
+# a=1
+# for i in range(3):
+#     for j in range(3):
+#         print(a,end="\t")
+#         a+=2
+#     print()
+
+# output
+# -------
+'''
+1   3   5
+7   9   11
+13  15  17
+'''
+
+a=1
+for i in range(4):
+    for j in range(4):
+        print(a,end="\t")
+    a+=1
