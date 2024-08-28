@@ -67,7 +67,10 @@
 # print(l.index(22))
 
 # tsk
-l=[[7,8,9,5,3,22,1]]
+l=[7,8,9,5,2,4,3,22,1]
+sum=0
 for i in l:
     if i%2==0:
         print(i)
+        sum+=i
+print("sum of even numbers is= ",sum)
