@@ -9,7 +9,8 @@ while True:
         4.Delete
         5.Search
         6.Add Task
-        7.Exit''')
+        7.view tasks
+        8.Exit1''')
     choice=int(input('choose an option: '))
     if choice==1:
         id=int(input('Enter the id: '))
@@ -20,7 +21,7 @@ while True:
         exp=int(input('Enter your experience: '))
         emp.append([id,name,age,poition,salary,exp])
     elif choice==2:
-        print('{:<5}{:<10}{:<5}{:<15}{:<10}{:<5}'.format('id','Name','Age','position','salary','Experience'))
+        print('{:<5}{:<10}{:<5}{:<10}{:<10}{:<5}'.format('id','Name','Age','position','salary','Experience'))
         for i in emp:
             print('{:<5}{:<10}{:<5}{:<10}{:<10}{:<5}'.format(i[0],i[1],i[2],i[3],i[4],i[5]))
     elif choice==3:
@@ -80,6 +81,11 @@ while True:
         if f==0:
             print('invalid id!!!')
     elif choice==7:
+        for i in emp:
+            if len(i)>6:
+                print('{:<5}{:<10}{:<15}{:<10}'.format('id','name','task','date'))
+                print('{:<5}{:<10}{:<15}{:<10}'.format(i[0],i[1],i[6][0],i[6][1]))
+    elif choice==8:
         break
     else:
         print('invalid option')
