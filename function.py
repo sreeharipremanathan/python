@@ -36,12 +36,26 @@
 # print(a)
 # print(b)
 
-def fun2():
-    a=10
-    b=22
-    c=34
-    return a,b,c
-a1,b1,c1=fun2()
-print(a1)
-print(b1)
-print(c1)
+# def fun2():
+#     a=10
+#     b=22
+#     c=34
+#     return a,b,c
+# a1,b1,c1=fun2()
+# print(a1)
+# print(b1)
+# print(c1)
+
+#arguments
+# def dtls(name,age):
+#     print('name=',name)
+#     print('age=',age)
+
+# dtls('hari',22)
+# dtls('athi',18)
+
+#keyword argument
+def dtls(name,age):
+    print('name=',name)
+    print('age=',age)
+dtls(name='hari',age='22')
