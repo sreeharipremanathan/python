@@ -55,7 +55,17 @@
 # dtls('athi',18)
 
 #keyword argument
-def dtls(name,age):
-    print('name=',name)
-    print('age=',age)
-dtls(name='hari',age='22')
+# def dtls(name,age):
+#     print('name=',name)
+#     print('age=',age)
+# dtls(name='hari',age='22')
+
+#default arguments
+def sample(name,age=22):
+    print(name,age)
+sample('hari')
+sample('athi',18)
+
+def demo(name='anonimous',age=22):
+    print(name,age)
+demo()

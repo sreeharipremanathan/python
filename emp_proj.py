@@ -3,12 +3,17 @@ def login():
     uname=input('ener your user name: ')
     passwrd=input('ener your password: ')
     f=0
+    user=''
     if uname=='admin' and passwrd=='admin':
         f=1
-    return f
+    for i in emp:
+        if i['id']==uname and i['password']==passwrd:
+            f=2
+            user=i
+    return f,user
 
 def add_emp():
-    id=int(input('enter your id: '))
+    id=str(input('enter your id: '))
     f1=0
     for i in emp:
         if i['id']==id:
@@ -21,10 +26,11 @@ def add_emp():
         salary=int(input('enter your salary: '))
         place=(input('enter your place: '))
         dob=(input('enter your date of birth: '))
-        emp.append({'id':id,'name':name,'age':age,'salary':salary,'place':place,'date_of_birth':dob})
+        password=dob
+        emp.append({'id':id,'name':name,'age':age,'salary':salary,'place':place,'date_of_birth':dob,'password':password})
         print('Employee added successfully')
 def update():
-    id=int(input('enter your id: '))
+    id=str(input('enter your id: '))
     f2=0
     for i in emp:
         if i['id']==id:
@@ -43,7 +49,7 @@ def update():
     if f2==0:
         print('invalid id!!!')
 def delete():
-    id=int(input('enter your id: '))
+    id=str(input('enter your id: '))
     f3=0
     for i in emp:
         if i['id']==id:
@@ -55,17 +61,40 @@ def delete():
 def display():
     print('_'*65)
     print("{:<10}{:<10}{:<10}{:<10}{:<10}{:<15}".format('id','name','age','salary','place','date of birth'))
-    print('-'*70)
+    print('-'*65)
     for i in emp:
             print("{:<10}{:<10}{:<10}{:<10}{:<10}{:<15}".format(i['id'],i['name'],i['age'],i['salary'],i['place'],i['date_of_birth']))
+def view_profile(user):
+    # print(user)
+    print('_'*65)
+    print("{:<10}{:<10}{:<10}{:<10}{:<10}{:<15}".format('id','name','age','salary','place','date of birth'))
+    print('-'*65)
+    print("{:<10}{:<10}{:<10}{:<10}{:<10}{:<15}".format(user['id'],user['name'],user['age'],user['salary'],user['place'],user['date_of_birth']))
+def user_update(user):
+    f4=0
+    for i in emp:
+        if i['id']==user['id']:
+            f4=1
+            name=input('enter the updatede name: ')
+            age=int(input('enter your age: '))
+            place=(input('enter your place: '))
+            dob=(input('enter your date of birth: '))
+            i['name']=name
+            i['age']=age
+            i['place']=place
+            i['date_of_birth']=dob
+            print('updated successfully...')
+    if f4==0:
+        print('invalid id!!!!')
+    
 while True:
     print('''
     1.login
     2.exit''')
     choice=int(input('enter the  choice: '))
     if choice==1:
-        f=login()
-        if f==1:
+        f,user=login()
+        if f==1: #admin login
             while True:
                 print('''
                     1.add emp
@@ -89,5 +118,23 @@ while True:
                     print('invalid choice')
         elif f==0:
             print('invalid username or passsword!!!')
+        elif f==2: #user login
+            while True:
+                if user['date_of_birth']==user['password']:
+                    password=input('enter a new password')
+                    user['password']=password
+                else:
+                    print('''
+                        1.view profile
+                        2.edit profile
+                        3.logout
+    ''')
+                    sub_ch=int(input('enter your choice: '))
+                    if sub_ch==1:
+                        view_profile(user)
+                    elif sub_ch==2:
+                        user_update(user)
+                    elif sub_ch==3:
+                        break 
     elif choice==2:
         break
