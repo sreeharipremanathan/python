@@ -1,5 +1,5 @@
-lms=[]
-books=[]
+lms=[{'id':102,'name':'hari','place':'tsr','address':'eng','mobile_no':751055,'email_id':'sreehari@gmail','password':'hari7510'}]
+books=[{'b_id':11,'book_name':'death note','stock':5,'price':10},{'b_id':12,'book_name':'black clover','stock':7,'price':500}]
 def register():
     if len(lms)==0:
         id=101
@@ -74,11 +74,19 @@ def delete_book():
         print('invalid id!!!')
 
 def display_users():
-    print('_'*75)
+    print('_'*80)
     print("{:<10}{:<15}{:<15}{:<15}{:<15}{:<15}".format('id','name','place','address','mobile_no','email id'))
-    print('-'*75)
+    print('-'*80)
     for i in lms:
         print("{:<10}{:<15}{:<15}{:<15}{:<15}{:<15}".format(i['id'],i['name'],i['place'],i['address'],i['mobile_no'],i['email_id']))
+
+def view_profile(user):
+    print('_'*85)
+    print("{:<10}{:<15}{:<15}{:<15}{:<15}{:<15}".format('id','name','place','address','mobile_no','email id'))
+    print('-'*85)
+    print("{:<10}{:<15}{:<15}{:<15}{:<15}{:<15}".format(user['id'],user['name'],user['place'],user['address'],user['mobile_no'],user['email_id']))
+
+
 
 while True:
     print('''
@@ -117,7 +125,20 @@ while True:
                 else:
                     print('invalid option')
         elif f==2:
-            print('user login')
+            while True:
+                print('''
+                    1.view profile
+                    2.view books
+                    3.take a book
+                    4.return book
+                    5.book in hand
+                    6.exit
+    ''')
+                user_choice=int(input('enter your choice: '))
+                if user_choice==1:
+                    view_profile(user)
+                elif user_choice==2:
+                    view_books()
         else:
             print('invalid user name or password')
     elif choice==3:
