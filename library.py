@@ -1,4 +1,4 @@
-lms=[{'id':102,'name':'hari','place':'tsr','address':'eng','mobile_no':751055,'email_id':'sreehari@gmail','password':'hari7510'}]
+lms=[{'id':102,'name':'hari','place':'tsr','address':'eng','mobile_no':751055,'email_id':'aa','password':'7510','books':[]}]
 books=[{'b_id':11,'book_name':'death note','stock':5,'price':10},{'b_id':12,'book_name':'black clover','stock':7,'price':500}]
 def register():
     if len(lms)==0:
@@ -18,7 +18,7 @@ def register():
         address=input('enter your address: ')
         mob=int(input('eneter your mobile number: '))
         password=input('set your password: ')
-        lms.append({'id':id,'name':name,'place':place,'address':address,'mobile_no':mob,'email_id':email,'password':password})
+        lms.append({'id':id,'name':name,'place':place,'address':address,'mobile_no':mob,'email_id':email,'password':password,'books':[]})
         print('registration successfull')
 def login():
     uname=input('enter your username (email id): ')
@@ -86,8 +86,31 @@ def view_profile(user):
     print('-'*85)
     print("{:<10}{:<15}{:<15}{:<15}{:<15}{:<15}".format(user['id'],user['name'],user['place'],user['address'],user['mobile_no'],user['email_id']))
 
+def take_book(user):
+    id=int(input('enter the book id: '))
+    f=0
+    for i in books:
+        if i['b_id']==id:
+            f=1
+            if i['stock']>0:
+                user['books'].append(i['b_id'])
+                i['stock']-=1
+            else:
+                print('out of stock!!!')
+    print(user)
+    if f==0:
+        print('iinvalid id!!!')
 
+def return_book(user):
+    id=int(input('enter the book id: '))
+    f=0
+    for i in books:
+        if i['b_id']==id:
+            f=1
+            user['books'].remove(i['b_id'])
+            i['stock']+=1
 
+    print(user)
 while True:
     print('''
             1.register
@@ -139,6 +162,14 @@ while True:
                     view_profile(user)
                 elif user_choice==2:
                     view_books()
+                elif user_choice==3:
+                    take_book(user)
+                elif user_choice==4:
+                    return_book(user)
+                elif user_choice==6:
+                    break
+                else:
+                    print('invalid option!!!')
         else:
             print('invalid user name or password')
     elif choice==3:
