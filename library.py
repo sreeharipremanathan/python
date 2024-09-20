@@ -97,7 +97,6 @@ def take_book(user):
                 i['stock']-=1
             else:
                 print('out of stock!!!')
-    print(user)
     if f==0:
         print('iinvalid id!!!')
 
@@ -105,12 +104,17 @@ def return_book(user):
     id=int(input('enter the book id: '))
     f=0
     for i in books:
-        if i['b_id']==id:
+        if i['b_id']==id and id in user['books']:
             f=1
-            user['books'].remove(i['b_id'])
+            user['books'].remove(id)
             i['stock']+=1
+    if f==0:
+        print('book not found!!!')
 
-    print(user)
+def book_in_hand(user):
+    print(user['books'])
+
+
 while True:
     print('''
             1.register
@@ -166,6 +170,8 @@ while True:
                     take_book(user)
                 elif user_choice==4:
                     return_book(user)
+                elif user_choice==5:
+                    book_in_hand(user)
                 elif user_choice==6:
                     break
                 else:
