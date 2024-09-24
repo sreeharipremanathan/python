@@ -2,6 +2,7 @@ f=open('python/multi_table.txt','w')
 num=int(input('enter a number: '))
 product=0
 for i in range(1,num+1):
+    f.write("\n")
     for j in range(1,11):
         product=i*j
         # print(product)
