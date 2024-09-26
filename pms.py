@@ -7,7 +7,12 @@ while True:
 4.view product
 5.search product
 6.exit''')
-    choice=int(input('enter your choice: '))
+    while True:
+        try:
+            choice=int(input('enter your choice: '))
+            break
+        except:
+            pass
     if choice==1:
         name=input('enter product name: ')
         product_id=int(input('enter product id: '))
