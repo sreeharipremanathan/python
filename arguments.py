@@ -2,7 +2,7 @@
 #     print(b,a)
 # sample(18)
 # sample(1,2)
-# sample(1,4,6,7)                              
+# sample(1,4,6,7)                            
 
 def sample(**a):
     print(a)
