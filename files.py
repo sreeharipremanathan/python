@@ -22,7 +22,7 @@
 # l=f.readlines()
 # f.seek(0)
 # for i in range(len(l)):
-#     a=f.readline().strip()
+    # a=f.readline().strip()
 #     # print(a)
 #     rev=''
 #     for j in a:
