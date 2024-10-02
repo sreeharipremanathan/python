@@ -1,13 +1,14 @@
-emp=[]
+# emp=[]
+emp=[{'id':1, 'name': 'hari', 'age': 22, 'salary': 35000, 'place': 'tsr', 'dob': '26/11/2002', 'password': '26/11/2002'}]
 def login():
     uname=input('ener your user name: ')
-    passwrd=input('ener your password: ')
+    password=input('ener your password: ')
     f=0
     user=''
-    if uname=='admin' and passwrd=='admin':
+    if uname=='admin' and password=='admin':
         f=1
     for i in emp:
-        if i['id']==uname and i['password']==passwrd:
+        if i['id']==uname and i['password']==password:
             f=2
             user=i
     return f,user
@@ -26,7 +27,6 @@ def add_emp():
         salary=int(input('enter your salary: '))
         place=(input('enter your place: '))
         dob=(input('enter your date of birth: '))
-        password=dob
         emp.append({'id':id,'name':name,'age':age,'salary':salary,'place':place,'date_of_birth':dob,'password':password})
         print('Employee added successfully')
 def update():
@@ -35,7 +35,7 @@ def update():
     for i in emp:
         if i['id']==id:
             f2=1
-            name=(input('enter your name: '))
+            name=input('enter your name: ')
             age=int(input('enter your age: '))
             salary=int(input('enter your salary: '))
             place=(input('enter your place: '))
@@ -94,6 +94,8 @@ while True:
     choice=int(input('enter the  choice: '))
     if choice==1:
         f,user=login()
+        print(f)
+        print(user)
         if f==1: #admin login
             while True:
                 print('''
