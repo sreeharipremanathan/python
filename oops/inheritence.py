@@ -132,28 +132,73 @@
 # hari.id_card()
 
 #hirearchial 
-class  school:
+# class  school:
+#     def exams(self):
+#         print('exams')
+#     def results(self):
+#         print('results')
+
+# class class1(school):
+#     def notes(self):
+#         print('notes class1')
+#     def class_room(self):
+#         print('class dtls')
+
+# class class2(school):
+#     def notes(self):
+#         print('notes class2')
+#     def class_room(self):
+#         print('class dtls')
+
+# std1=class1()
+# std1.exams()
+# std1.notes()
+
+# std2=class2()
+# std2.notes()
+# std2.results
+
+# hybrid
+
+class synnefo():
+    def php(self):
+        print('1.php')
+    def python(self):
+        print('python')
+    def registration(self):
+        print('admission')
+
+class non_teaching_staff(synnefo):
+    def front_office(self):
+        print('front office')
+    def developerds(self):
+        print('develpoers')
+    
+class teaching_staff(synnefo):
+    def notes(self):
+        print('notes')
+    def labs(self):
+        print('labs')
+    def attendance(self):
+        print('attendance')
+
+class student(teaching_staff):
+    def note_collection(self):
+        print('notes collection')
+    def lab_using(self):
+        print('lab using')
     def exams(self):
         print('exams')
-    def results(self):
-        print('results')
 
-class class1(school):
-    def notes(self):
-        print('notes class1')
-    def class_room(self):
-        print('class dtls')
+std1=student()
+std1.python()
+std1.labs()
+std1.note_collection()
 
-class class2(school):
-    def notes(self):
-        print('notes class2')
-    def class_room(self):
-        print('class dtls')
+sir1=teaching_staff()
+sir1.python()
+sir1.attendance()
 
-std1=class1()
-std1.exams()
-std1.notes()
-
-std2=class2()
-std2.notes()
-std2.results
+alen=non_teaching_staff()
+alen.front_office()
+alen.registration()
