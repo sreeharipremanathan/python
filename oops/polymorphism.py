@@ -9,22 +9,22 @@
 # achu=staff()
 # achu.accounts()
 
-# class school():
-#     def notes(self):
-#         print('notes')
-# class students(school):
-#     def notes(self):
-#         print('std notes')
+class school():
+    def notes(self,*sub):
+        print(sub)
+class students(school):
+    def notes(self,*sub):
+        super().notes(sub)
+        print('std notes')
+std1=students()
+std1.notes('py','math','eng')
 
-# std1=students()
-# std1.notes()
+# class library():
+#     def __init__(self):
+#         print('book dtls')
 
-class library():
-    def __init__(self):
-        print('book dtls')
+# class user(library):
+#     def __init__(self):
+#         print('user dtls')
 
-class user(library):
-    def __init__(self):
-        print('user dtls')
-
-user1=user()
+# user1=user()

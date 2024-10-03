@@ -1,5 +1,5 @@
 # emp=[]
-emp=[{'id':1, 'name': 'hari', 'age': 22, 'salary': 35000, 'place': 'tsr', 'dob': '26/11/2002', 'password': '26/11/2002'}]
+emp=[{'id':'1', 'name': 'hari', 'age': 22, 'salary': 35000, 'place': 'tsr', 'date_of_birth': '26/11/2002', 'password': '26/11/2002'}]
 def login():
     uname=input('ener your user name: ')
     password=input('ener your password: ')
